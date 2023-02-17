@@ -174,6 +174,7 @@ GameObject:
   - component: {fileID: 15021383}
   - component: {fileID: 15021382}
   - component: {fileID: 15021385}
+  - component: {fileID: 15021386}
   m_Layer: 0
   m_Name: Pillar (16)
   m_TagString: Untagged
@@ -276,6 +277,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &15021386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 15021380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8b0d6265b424ac7fbc2dab71f56a2dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &27316454
 GameObject:
   m_ObjectHideFlags: 0
@@ -289,6 +302,7 @@ GameObject:
   - component: {fileID: 27316457}
   - component: {fileID: 27316456}
   - component: {fileID: 27316459}
+  - component: {fileID: 27316460}
   m_Layer: 0
   m_Name: Pillar (3)
   m_TagString: Untagged
@@ -391,6 +405,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &27316460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 27316454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8b0d6265b424ac7fbc2dab71f56a2dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &76080889
 GameObject:
   m_ObjectHideFlags: 0
@@ -563,7 +589,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 927b5a11fc76cd637b4573662e9d0fea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreText: {fileID: 1360458276}
+  ScoreText: {fileID: 1360458276}
   timerText: {fileID: 1945443641}
 --- !u!4 &225808615
 Transform:
@@ -1017,6 +1043,7 @@ GameObject:
   - component: {fileID: 459980866}
   - component: {fileID: 459980865}
   - component: {fileID: 459980868}
+  - component: {fileID: 459980869}
   m_Layer: 0
   m_Name: Pillar (12)
   m_TagString: Untagged
@@ -1119,6 +1146,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &459980869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 459980863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8b0d6265b424ac7fbc2dab71f56a2dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &470362203
 GameObject:
   m_ObjectHideFlags: 0
@@ -1132,6 +1171,7 @@ GameObject:
   - component: {fileID: 470362206}
   - component: {fileID: 470362205}
   - component: {fileID: 470362208}
+  - component: {fileID: 470362209}
   m_Layer: 0
   m_Name: Pillar (11)
   m_TagString: Untagged
@@ -1234,6 +1274,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &470362209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 470362203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8b0d6265b424ac7fbc2dab71f56a2dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &533941307
 GameObject:
   m_ObjectHideFlags: 0
@@ -1344,6 +1396,7 @@ GameObject:
   - component: {fileID: 565784440}
   - component: {fileID: 565784439}
   - component: {fileID: 565784442}
+  - component: {fileID: 565784443}
   m_Layer: 0
   m_Name: Pillar (5)
   m_TagString: Untagged
@@ -1446,6 +1499,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &565784443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 565784437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8b0d6265b424ac7fbc2dab71f56a2dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &625975672
 GameObject:
   m_ObjectHideFlags: 0
@@ -1860,6 +1925,7 @@ GameObject:
   - component: {fileID: 799263460}
   - component: {fileID: 799263459}
   - component: {fileID: 799263462}
+  - component: {fileID: 799263463}
   m_Layer: 0
   m_Name: Pillar (7)
   m_TagString: Untagged
@@ -1962,6 +2028,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &799263463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 799263457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8b0d6265b424ac7fbc2dab71f56a2dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &811983049
 GameObject:
   m_ObjectHideFlags: 0
@@ -1975,6 +2053,7 @@ GameObject:
   - component: {fileID: 811983052}
   - component: {fileID: 811983051}
   - component: {fileID: 811983054}
+  - component: {fileID: 811983055}
   m_Layer: 0
   m_Name: Pillar (4)
   m_TagString: Untagged
@@ -2077,6 +2156,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &811983055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 811983049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8b0d6265b424ac7fbc2dab71f56a2dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &839687215
 GameObject:
   m_ObjectHideFlags: 0
@@ -2090,6 +2181,7 @@ GameObject:
   - component: {fileID: 839687218}
   - component: {fileID: 839687217}
   - component: {fileID: 839687220}
+  - component: {fileID: 839687221}
   m_Layer: 0
   m_Name: Pillar (13)
   m_TagString: Untagged
@@ -2192,6 +2284,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &839687221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 839687215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8b0d6265b424ac7fbc2dab71f56a2dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &873044227
 GameObject:
   m_ObjectHideFlags: 0
@@ -2205,6 +2309,7 @@ GameObject:
   - component: {fileID: 873044230}
   - component: {fileID: 873044229}
   - component: {fileID: 873044232}
+  - component: {fileID: 873044233}
   m_Layer: 0
   m_Name: Pillar
   m_TagString: Untagged
@@ -2307,6 +2412,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &873044233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 873044227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8b0d6265b424ac7fbc2dab71f56a2dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &932916201
 GameObject:
   m_ObjectHideFlags: 0
@@ -2320,6 +2437,7 @@ GameObject:
   - component: {fileID: 932916204}
   - component: {fileID: 932916203}
   - component: {fileID: 932916206}
+  - component: {fileID: 932916207}
   m_Layer: 0
   m_Name: Pillar (9)
   m_TagString: Untagged
@@ -2422,6 +2540,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &932916207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932916201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8b0d6265b424ac7fbc2dab71f56a2dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -2533,6 +2663,7 @@ GameObject:
   - component: {fileID: 977468828}
   - component: {fileID: 977468827}
   - component: {fileID: 977468830}
+  - component: {fileID: 977468831}
   m_Layer: 0
   m_Name: Pillar (1)
   m_TagString: Untagged
@@ -2635,6 +2766,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &977468831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 977468825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8b0d6265b424ac7fbc2dab71f56a2dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1016609165
 GameObject:
   m_ObjectHideFlags: 0
@@ -2648,6 +2791,7 @@ GameObject:
   - component: {fileID: 1016609168}
   - component: {fileID: 1016609167}
   - component: {fileID: 1016609170}
+  - component: {fileID: 1016609171}
   m_Layer: 0
   m_Name: Pillar (14)
   m_TagString: Untagged
@@ -2750,6 +2894,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1016609171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1016609165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8b0d6265b424ac7fbc2dab71f56a2dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1085585694
 GameObject:
   m_ObjectHideFlags: 0
@@ -2860,6 +3016,7 @@ GameObject:
   - component: {fileID: 1117306761}
   - component: {fileID: 1117306760}
   - component: {fileID: 1117306763}
+  - component: {fileID: 1117306764}
   m_Layer: 0
   m_Name: Pillar (15)
   m_TagString: Untagged
@@ -2962,6 +3119,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1117306764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1117306758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8b0d6265b424ac7fbc2dab71f56a2dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1144770461
 GameObject:
   m_ObjectHideFlags: 0
@@ -3075,7 +3244,7 @@ GameObject:
   - component: {fileID: 1252128038}
   m_Layer: 0
   m_Name: Body
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3203,6 +3372,7 @@ GameObject:
   - component: {fileID: 1335066896}
   - component: {fileID: 1335066895}
   - component: {fileID: 1335066898}
+  - component: {fileID: 1335066899}
   m_Layer: 0
   m_Name: Pillar (6)
   m_TagString: Untagged
@@ -3305,6 +3475,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1335066899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1335066893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8b0d6265b424ac7fbc2dab71f56a2dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1360458274
 GameObject:
   m_ObjectHideFlags: 0
@@ -3454,6 +3636,7 @@ GameObject:
   - component: {fileID: 1390977593}
   - component: {fileID: 1390977592}
   - component: {fileID: 1390977595}
+  - component: {fileID: 1390977596}
   m_Layer: 0
   m_Name: Pillar (2)
   m_TagString: Untagged
@@ -3556,6 +3739,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1390977596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1390977590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8b0d6265b424ac7fbc2dab71f56a2dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1528999221
 GameObject:
   m_ObjectHideFlags: 0
@@ -3645,6 +3840,7 @@ GameObject:
   - component: {fileID: 1629498889}
   - component: {fileID: 1629498888}
   - component: {fileID: 1629498891}
+  - component: {fileID: 1629498892}
   m_Layer: 0
   m_Name: Pillar (10)
   m_TagString: Untagged
@@ -3747,6 +3943,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1629498892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1629498886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8b0d6265b424ac7fbc2dab71f56a2dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1689159890
 GameObject:
   m_ObjectHideFlags: 0
@@ -4027,6 +4235,7 @@ GameObject:
   - component: {fileID: 2059238944}
   - component: {fileID: 2059238943}
   - component: {fileID: 2059238946}
+  - component: {fileID: 2059238947}
   m_Layer: 0
   m_Name: Pillar (8)
   m_TagString: Untagged
@@ -4129,6 +4338,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2059238947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2059238941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8b0d6265b424ac7fbc2dab71f56a2dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5860092803071559365
 PrefabInstance:
   m_ObjectHideFlags: 0

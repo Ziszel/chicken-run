@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public TMP_Text scoreText;
+    public TMP_Text ScoreText;
     public TMP_Text timerText;
-    private int _score;
+    private static int _score;
     private float _timer;
+    //private GameObject[] _collideableArray;
 
     private void Start()
     {
         _timer = 99.0f;
         _score = 0;
-        
+        //_collideableArray = GameObject.FindGameObjectsWithTag("Collidable");
     }
 
     private void Update()
@@ -21,11 +22,11 @@ public class GameManager : MonoBehaviour
         _timer -= Time.deltaTime;
         UpdateTimer();
     }
-
+    
     public void UpdateScore(int targetValue)
     {
         _score += targetValue;
-        scoreText.text = "Score: " + _score;
+        ScoreText.text = "Score: " + _score;
     }
 
     private void UpdateTimer()
