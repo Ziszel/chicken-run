@@ -21,6 +21,5 @@ public class Collidable : MonoBehaviour
                 gm.UpdateScore(100);
             }
         }
-        
     }
 }
