@@ -19,6 +19,7 @@ public class Collidable : MonoBehaviour
             if (collision.collider.CompareTag("Player"))
             {
                 gm.UpdateScore(100);
+                _isHit = true;
             }
         }
     }

@@ -8,9 +8,9 @@ public class Pickup : MonoBehaviour
         gm = FindObjectOfType<GameManager>();
     }
 
-    private void OnTriggerEnter(Collider collider)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collider.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         { 
             gm.UpdatePickup();
             gameObject.SetActive(false);
