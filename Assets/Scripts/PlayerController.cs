@@ -1,22 +1,60 @@
-using System;
 using UnityEngine;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
     public Rigidbody rb;
     public bool onGround = true;
+    public bool canBoost = true;
+    public TMP_Text boostReadyText; 
+    [Header("Movement Parameters")]
     [SerializeField] float speed = 100.0f; // has no effect if using editor
     [SerializeField] private float rotationSpeed = 200.0f;
 
+    [Header("Boost Parameters")] 
+    [SerializeField] private float thrust = 10.0f;
+    [SerializeField] private float boostCooldown = 5.0f;
+    private float _boostCooldownTimer;
+
     private void Update()
     {
-        if (!onGround)
+        if (GameManager.gs == GameState.Playing)
         {
-            float xSpeed = Input.GetAxisRaw("Horizontal");
-            float zSpeed = Input.GetAxisRaw("Vertical");
-        
-            RotatePlayer(xSpeed, zSpeed);
+            if (!onGround)
+            {
+                float xSpeed = Input.GetAxisRaw("Horizontal");
+                float zSpeed = Input.GetAxisRaw("Vertical");
+
+                RotatePlayer(xSpeed, zSpeed);
+            }
+
+            if (Input.GetKey(KeyCode.Space))
+            {
+                SpeedBoost();
+                ResetBoostTimer();
+            }
+
+            if (!canBoost)
+            {
+                _boostCooldownTimer -= Time.deltaTime;
+                if (boostReadyText.IsActive())
+                {
+                    boostReadyText.gameObject.SetActive(false);
+                }
+            }
+
+            if (_boostCooldownTimer < 0.0f)
+            {
+                canBoost = true;
+                boostReadyText.gameObject.SetActive(true);
+            }
         }
+        else
+        {
+            ResetBoostTimer();
+            boostReadyText.gameObject.SetActive(false);
+        }
+        
     }
 
     private void FixedUpdate()
@@ -27,6 +65,17 @@ public class PlayerController : MonoBehaviour
         if (xSpeed != 0 || zSpeed != 0)
         {
             MovePlayer(xSpeed, zSpeed);
+        }
+    }
+
+    private void SpeedBoost()
+    {
+        if (onGround)
+        {
+            if (canBoost)
+            {
+                rb.AddForce(0.0f, 0.0f, thrust, ForceMode.Impulse);
+            }
         }
     }
 
@@ -58,5 +107,11 @@ public class PlayerController : MonoBehaviour
     private void RotatePlayer(float xSpeed, float zSpeed)
     {
         transform.Rotate(zSpeed * rotationSpeed * Time.deltaTime, xSpeed * rotationSpeed * Time.deltaTime, 0.0f);
+    }
+
+    private void ResetBoostTimer()
+    {
+        _boostCooldownTimer = boostCooldown;
+        canBoost = false;
     }
 }

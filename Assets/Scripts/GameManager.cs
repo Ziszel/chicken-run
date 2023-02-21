@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-enum GameState
+public enum GameState
 {
     Playing = 0,
     Complete = 1
@@ -23,20 +23,20 @@ public class GameManager : MonoBehaviour
     private static int _score;
     private float _timer;
     private bool _pickupCollected;
-    private GameState _gs;
+    public static GameState gs;
 
     private void Start()
     {
         _pickupCollected = false;
         _timer = 99.0f;
         _score = 0;
-        _gs = GameState.Playing;
+        gs = GameState.Playing;
         restartButton.onClick.AddListener(OnRestartClicked);
     }
 
     private void Update()
     {
-        if (_gs == GameState.Playing)
+        if (gs == GameState.Playing)
         {
             // update timer, and set to 0 if it falls below
             if (_timer != 0.0f)
@@ -82,7 +82,7 @@ public class GameManager : MonoBehaviour
     public void CompleteLevel()
     {
         // Change game state to stop timer and score
-        _gs = GameState.Complete;
+        gs = GameState.Complete;
         // Lock player input (but not movement as the player flopping around could be fun)
         // Update UI to show results + a button to restart
         
@@ -132,7 +132,7 @@ public class GameManager : MonoBehaviour
         // pickup
         pickupMessage.text = (_pickupCollected) ? "Pickup collected: Yes" : "Pickup collected: No";
         // time
-        int timeRemaining = (int)(99.0f - _timer);
+        int timeRemaining = (int)((99.0f) - (99.0f - _timer));
         timeMessage.text = $"Time remaining: {timeRemaining}";
     }
 }

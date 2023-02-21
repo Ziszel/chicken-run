@@ -15,7 +15,7 @@ public class PlayerFloorTrigger : MonoBehaviour
         {
             pc.rb.rotation = Quaternion.identity;
             pc.rb.freezeRotation = true;
-            pc.onGround = true;   
+            pc.onGround = true;
         }
     }
 
@@ -25,6 +25,7 @@ public class PlayerFloorTrigger : MonoBehaviour
         {
             pc.rb.freezeRotation = false;
             pc.onGround = false;
+            pc.canBoost = false;
         }
     }
 }
