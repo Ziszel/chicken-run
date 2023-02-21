@@ -14,10 +14,10 @@ public class GameManager : MonoBehaviour
 {
     public TMP_Text scoreText;
     public TMP_Text timerText;
-    public TMP_Text endMessage;
     public TMP_Text rankMessage;
-    public TMP_Text gemMessage;
+    public TMP_Text pickupMessage;
     public TMP_Text scoreMessage;
+    public TMP_Text timeMessage;
     public Image pickupImage;
     public Button restartButton;
     private static int _score;
@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         _pickupCollected = false;
-        _timer = 99.0f;
+        _timer = 5.0f;
         _score = 0;
         _gs = GameState.Playing;
         restartButton.onClick.AddListener(OnRestartClicked);
@@ -38,8 +38,16 @@ public class GameManager : MonoBehaviour
     {
         if (_gs == GameState.Playing)
         {
-            _timer -= Time.deltaTime;
-            UpdateTimer();   
+            // update timer, and set to 0 if it falls below
+            if (_timer != 0.0f)
+            {
+                _timer -= Time.deltaTime;
+                UpdateTimer();
+            }
+            if (_timer < 0.0f)
+            {
+                _timer = 0.0f;
+            }
         }
     }
     
@@ -82,10 +90,49 @@ public class GameManager : MonoBehaviour
         scoreText.gameObject.SetActive(false);
         timerText.gameObject.SetActive(false);
         // show end screen elements
-        endMessage.gameObject.SetActive(true);
         rankMessage.gameObject.SetActive(true);
-        gemMessage.gameObject.SetActive(true);
+        pickupMessage.gameObject.SetActive(true);
         scoreMessage.gameObject.SetActive(true);
         restartButton.gameObject.SetActive(true);
+        timeMessage.gameObject.SetActive(true);
+        
+        SetMessageText();
+    }
+
+    private void SetMessageText()
+    {
+        // rank
+        if (_timer >= 79.0f)
+        {
+            rankMessage.text = "Based on your time...\n\nYour rank: Cheater!";
+        }
+        else if (_timer >= 69.0f)
+        {
+            rankMessage.text = "Based on your time...\n\nYour rank: S";
+        }
+        else if (_timer >= 59.0f)
+        {
+            rankMessage.text = "Based on your time...\n\nYour rank: A";
+        }
+        else if (_timer >= 49.0f)
+        {
+            rankMessage.text = "Based on your time...\n\nYour rank: B";
+        }
+        else if (_timer >= 39.0f)
+        {
+            rankMessage.text = "Based on your time...\n\nYour rank: C";
+        }
+        else if (_timer == 0.0f)
+        {
+            rankMessage.text = "Based on your time...\n\nYour rank: F";
+        }
+        
+        // score
+        scoreMessage.text = $"Score: {_score} / 500";
+        // pickup
+        pickupMessage.text = (_pickupCollected) ? "Pickup collected: Yes" : "Pickup collected: No";
+        // time
+        int timeRemaining = (int)(99.0f - _timer);
+        timeMessage.text = $"Time remaining: {timeRemaining}";
     }
 }

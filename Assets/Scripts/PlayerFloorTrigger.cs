@@ -11,7 +11,6 @@ public class PlayerFloorTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("hit");
         if (other.CompareTag("Floor"))
         {
             pc.rb.rotation = Quaternion.identity;
@@ -22,7 +21,6 @@ public class PlayerFloorTrigger : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        Debug.Log("hitExit");
         if (other.CompareTag("Floor"))
         {
             pc.rb.freezeRotation = false;

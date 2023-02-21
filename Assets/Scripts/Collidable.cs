@@ -4,12 +4,12 @@ using UnityEngine;
 public class Collidable : MonoBehaviour
 {
     private bool _isHit;
-    private GameManager gm;
+    private GameManager _gm;
 
     private void Start()
     {
         _isHit = false;
-        gm = FindObjectOfType<GameManager>();
+        _gm = FindObjectOfType<GameManager>();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -18,7 +18,7 @@ public class Collidable : MonoBehaviour
         {
             if (collision.collider.CompareTag("Player"))
             {
-                gm.UpdateScore(100);
+                _gm.UpdateScore(100);
                 _isHit = true;
             }
         }

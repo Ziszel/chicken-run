@@ -6,12 +6,13 @@ public class ChangeCamera : MonoBehaviour
 {
     public Transform cameraWatchPosition;
     private Camera _mainCamera;
-    private Vector3 _targetRotation = new Vector3(90.0f, 0.0f, 0.0f);
-
+    private readonly Vector3 _targetRotation = new Vector3(90.0f, 0.0f, 0.0f);
+    private GameManager _gm;
 
     private void Start()
     {
         _mainCamera = Camera.main;
+        _gm = FindObjectOfType<GameManager>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -19,11 +20,11 @@ public class ChangeCamera : MonoBehaviour
         _mainCamera.transform.SetParent(null);
         MainCamera.UnlockCamera();
         SetCameraToWatch();
+        _gm.CompleteLevel();
     }
 
     private void SetCameraToWatch()
     {
-        //mainCamera.transform.position = cameraWatchPosition.position;
         StartCoroutine(LerpFromTo(transform.position, cameraWatchPosition.position, true, 1.0f));
         StartCoroutine(LerpFromTo(_mainCamera.transform.eulerAngles, _targetRotation, false, 1.0f));
     }
