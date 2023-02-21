@@ -205,7 +205,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 15021380}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: ec92ca4857b6743c6865a6e673ef0919, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5000001
@@ -4590,7 +4590,7 @@ GameObject:
   - component: {fileID: 1144770463}
   m_Layer: 0
   m_Name: Goggles
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6631,8 +6631,32 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1972880942474729133, guid: 7167784c2c3d78f57bfe6e0ffcb87c59, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1972880942474729133, guid: 7167784c2c3d78f57bfe6e0ffcb87c59, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1972880942474729133, guid: 7167784c2c3d78f57bfe6e0ffcb87c59, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1972880942643825081, guid: 7167784c2c3d78f57bfe6e0ffcb87c59, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1972880942643825087, guid: 7167784c2c3d78f57bfe6e0ffcb87c59, type: 3}
+      propertyPath: m_margin.x
+      value: 37.30148
+      objectReference: {fileID: 0}
+    - target: {fileID: 1972880942643825087, guid: 7167784c2c3d78f57bfe6e0ffcb87c59, type: 3}
+      propertyPath: m_margin.z
+      value: -212.3331
+      objectReference: {fileID: 0}
+    - target: {fileID: 1972880942643825087, guid: 7167784c2c3d78f57bfe6e0ffcb87c59, type: 3}
+      propertyPath: m_HorizontalAlignment
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1972880943687237714, guid: 7167784c2c3d78f57bfe6e0ffcb87c59, type: 3}

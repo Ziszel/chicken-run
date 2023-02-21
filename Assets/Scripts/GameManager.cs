@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         _pickupCollected = false;
-        _timer = 5.0f;
+        _timer = 99.0f;
         _score = 0;
         _gs = GameState.Playing;
         restartButton.onClick.AddListener(OnRestartClicked);
@@ -49,12 +49,12 @@ public class GameManager : MonoBehaviour
                 _timer = 0.0f;
             }
         }
+        scoreText.text = "Score: " + _score;
     }
     
-    public void UpdateScore(int targetValue)
+    public static void UpdateScore(int targetValue)
     {
         _score += targetValue;
-        scoreText.text = "Score: " + _score;
     }
 
     private void UpdateTimer()

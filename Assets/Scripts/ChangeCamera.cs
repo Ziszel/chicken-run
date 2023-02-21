@@ -17,10 +17,13 @@ public class ChangeCamera : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        _mainCamera.transform.SetParent(null);
-        MainCamera.UnlockCamera();
-        SetCameraToWatch();
-        _gm.CompleteLevel();
+        if (other.CompareTag("Player"))
+        {
+            _mainCamera.transform.SetParent(null);
+            MainCamera.UnlockCamera();
+            SetCameraToWatch();
+            _gm.CompleteLevel();   
+        }
     }
 
     private void SetCameraToWatch()
