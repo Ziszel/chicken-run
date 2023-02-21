@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class PlayerFloorTrigger : MonoBehaviour
 {
+    [HideInInspector]
     public PlayerController pc;
     private void Start()
     {
