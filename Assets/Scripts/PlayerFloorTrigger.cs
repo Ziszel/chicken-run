@@ -48,9 +48,9 @@ public class PlayerFloorTrigger : MonoBehaviour
     {
         if (other.CompareTag("Floor"))
         {
+            pc.onGround = true;
             pc.rb.rotation = Quaternion.identity;
             pc.rb.freezeRotation = true;
-            pc.onGround = true;
             if (_flips > 0)
             {
                 GameManager.UpdateScore(_baseScore * _flips);
