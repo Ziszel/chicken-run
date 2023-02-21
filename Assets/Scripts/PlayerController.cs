@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using TMPro;
 
@@ -54,7 +55,7 @@ public class PlayerController : MonoBehaviour
             ResetBoostTimer();
             boostReadyText.gameObject.SetActive(false);
         }
-        
+
     }
 
     private void FixedUpdate()

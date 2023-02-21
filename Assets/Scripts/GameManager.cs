@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
         }
         scoreText.text = "Score: " + _score;
     }
-    
+
     public static void UpdateScore(int targetValue)
     {
         _score += targetValue;
