@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (GameManager.gs == GameState.Playing)
+        if (LevelManager.gs == GameState.Playing)
         {
             if (!onGround)
             {

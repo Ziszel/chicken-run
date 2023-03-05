@@ -1,138 +1,62 @@
-using System;
-using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
-
-public enum GameState
-{
-    Playing = 0,
-    Complete = 1
-};
 
 public class GameManager : MonoBehaviour
 {
-    public TMP_Text scoreText;
-    public TMP_Text timerText;
-    public TMP_Text rankMessage;
-    public TMP_Text pickupMessage;
-    public TMP_Text scoreMessage;
-    public TMP_Text timeMessage;
-    public Image pickupImage;
-    public Button restartButton;
-    private static int _score;
-    private float _timer;
-    private bool _pickupCollected;
-    public static GameState gs;
 
-    private void Start()
-    {
-        _pickupCollected = false;
-        _timer = 99.0f;
-        _score = 0;
-        gs = GameState.Playing;
-        restartButton.onClick.AddListener(OnRestartClicked);
-    }
+    public static GameManager Instance;
+    public static int TotalScore;
+    public static bool GemCollected;
+    public static float BestTime;
 
-    private void Update()
+    private void Awake()
     {
-        if (gs == GameState.Playing)
+        // If an Instance exists (character select screen ran before), do not create another
+        // This stops duplication of this class on reloading of the scene
+        if (Instance != null)
         {
-            // update timer, and set to 0 if it falls below
-            if (_timer != 0.0f)
-            {
-                _timer -= Time.deltaTime;
-                UpdateTimer();
-            }
-            if (_timer < 0.0f)
-            {
-                _timer = 0.0f;
-            }
+            // destroy the newly created game object on scene load as one already exists
+            Destroy(gameObject);
+            return;
         }
-        scoreText.text = "Score: " + _score;
-    }
 
-    public static void UpdateScore(int targetValue)
-    {
-        _score += targetValue;
-    }
+        TotalScore = 0;
+        GemCollected = false;
+        BestTime = 99.0f;
 
-    private void UpdateTimer()
-    {
-        int timerString = (int)Math.Round(_timer);
-        timerText.text = timerString.ToString();
+        Instance = this;
+        DontDestroyOnLoad(gameObject); // don't destroy this game object when loading a scene
     }
-
-    public void UpdatePickup()
+    
+    // This method is called by the level manager after the player returns from scene: LevelOne
+    public static void UpdateGameState(int latestScore, bool gemCollected, float latestTime)
     {
-        _pickupCollected = true;
-        pickupImage.gameObject.SetActive(true);
-    }
-
-    private void RestartLevel()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
-
-    private void OnRestartClicked()
-    {
-        RestartLevel();
-    }
-
-    public void CompleteLevel()
-    {
-        // Change game state to stop timer and score
-        gs = GameState.Complete;
-        // Lock player input (but not movement as the player flopping around could be fun)
-        // Update UI to show results + a button to restart
+        // Update the TotalScore
+        TotalScore += latestScore;
         
-        // hide playing elements
-        scoreText.gameObject.SetActive(false);
-        timerText.gameObject.SetActive(false);
-        // show end screen elements
-        rankMessage.gameObject.SetActive(true);
-        pickupMessage.gameObject.SetActive(true);
-        scoreMessage.gameObject.SetActive(true);
-        restartButton.gameObject.SetActive(true);
-        timeMessage.gameObject.SetActive(true);
+        // check if gem has been collected(this code would need significant refactoring if creating more than one level)
+        if (gemCollected)
+        {
+            GemCollected = true;
+        }
+
+        // I could have the GemCollected variable reset if the player does not capture the gem, however
+        // these are actually meant to persist so this code is unneeded, and it would be more obvious why
+        // with more levels and more gems.
+        /*if (!gemCollected)
+        {
+            GemCollected = false; 
+        }*/
         
-        SetMessageText();
+        if (latestTime < BestTime)
+        {
+            int timeResult = 99 - Mathf.CeilToInt(latestTime);
+            BestTime = timeResult;
+        }
     }
 
-    private void SetMessageText()
+    public static void LoadScene(string sceneToLoad)
     {
-        // rank
-        if (_timer >= 79.0f)
-        {
-            rankMessage.text = "Based on your time...\n\nYour rank: Cheater!";
-        }
-        else if (_timer >= 69.0f)
-        {
-            rankMessage.text = "Based on your time...\n\nYour rank: S";
-        }
-        else if (_timer >= 59.0f)
-        {
-            rankMessage.text = "Based on your time...\n\nYour rank: A";
-        }
-        else if (_timer >= 49.0f)
-        {
-            rankMessage.text = "Based on your time...\n\nYour rank: B";
-        }
-        else if (_timer >= 39.0f)
-        {
-            rankMessage.text = "Based on your time...\n\nYour rank: C";
-        }
-        else if (_timer == 0.0f)
-        {
-            rankMessage.text = "Based on your time...\n\nYour rank: F";
-        }
-        
-        // score
-        scoreMessage.text = $"Score: {_score} / 500";
-        // pickup
-        pickupMessage.text = (_pickupCollected) ? "Pickup collected: Yes" : "Pickup collected: No";
-        // time
-        int timeRemaining = (int)((99.0f) - (99.0f - _timer));
-        timeMessage.text = $"Time remaining: {timeRemaining}";
+        SceneManager.LoadScene(sceneToLoad);
     }
 }

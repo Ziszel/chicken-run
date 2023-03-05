@@ -16,7 +16,7 @@ public class Collidable : MonoBehaviour
         {
             if (collision.collider.CompareTag("Player"))
             {
-                GameManager.UpdateScore(100);
+                LevelManager.UpdateScore(100);
                 _isHit = true;
             }
         }
