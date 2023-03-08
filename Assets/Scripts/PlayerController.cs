@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
                 RotatePlayer(xSpeed, zSpeed);
             }
 
-            if (Input.GetKey(KeyCode.Space))
+            if (Input.GetKey(KeyCode.Space) && onGround)
             {
                 SpeedBoost();
                 ResetBoostTimer();
