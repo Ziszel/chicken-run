@@ -47,10 +47,9 @@ public class GameManager : MonoBehaviour
         {
             GemCollected = false; 
         }*/
-        
-        if (latestTime < BestTime)
+        int timeResult = 99 - Mathf.CeilToInt(latestTime);
+        if (timeResult < BestTime)
         {
-            int timeResult = 99 - Mathf.CeilToInt(latestTime);
             BestTime = timeResult;
         }
     }
