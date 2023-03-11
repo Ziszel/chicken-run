@@ -12,6 +12,7 @@ public enum GameState
 
 public class LevelManager : MonoBehaviour
 {
+    public static GameState gs;
     public TMP_Text scoreText;
     public TMP_Text timerText;
     public TMP_Text rankMessage;
@@ -23,7 +24,7 @@ public class LevelManager : MonoBehaviour
     private static int _score;
     private float _timer;
     private bool _pickupCollected;
-    public static GameState gs;
+    private AudioSource _as;
 
     private void Start()
     {
@@ -32,6 +33,7 @@ public class LevelManager : MonoBehaviour
         _score = 0;
         gs = GameState.Playing;
         restartButton.onClick.AddListener(OnRestartClicked);
+        _as = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -84,8 +86,9 @@ public class LevelManager : MonoBehaviour
     {
         // Change game state to stop timer and score
         gs = GameState.Complete;
-        // Lock player input (but not movement as the player flopping around could be fun)
-        // Update UI to show results + a button to restart
+        
+        // Play music
+        _as.Play();
         
         // hide playing elements
         scoreText.gameObject.SetActive(false);
@@ -135,6 +138,6 @@ public class LevelManager : MonoBehaviour
         // time
         
         int timeResult = 99 - Mathf.CeilToInt(_timer);
-        timeMessage.text = $"Time remaining: {timeResult}";
+        timeMessage.text = $"Time taken: {timeResult}";
     }
 }
