@@ -11,7 +11,6 @@ public class ChangeCamera : MonoBehaviour
 
     private void Start()
     {
-        _mainCamera = Camera.main;
         _lm = FindObjectOfType<LevelManager>();
     }
 
@@ -19,6 +18,7 @@ public class ChangeCamera : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            _mainCamera = Camera.main;
             _mainCamera.transform.SetParent(null);
             MainCamera.UnlockCamera();
             SetCameraToWatch();

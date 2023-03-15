@@ -30,7 +30,6 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log(GameManager.SelectedCharacter);
         SetActiveCharacter();
         _pickupCollected = false;
         _timer = 99.0f;
