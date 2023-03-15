@@ -21,6 +21,8 @@ public class LevelManager : MonoBehaviour
     public TMP_Text timeMessage;
     public Image pickupImage;
     public Button restartButton;
+    public GameObject gallagher;
+    public GameObject hobo;
     private static int _score;
     private float _timer;
     private bool _pickupCollected;
@@ -28,6 +30,8 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
+        Debug.Log(GameManager.SelectedCharacter);
+        SetActiveCharacter();
         _pickupCollected = false;
         _timer = 99.0f;
         _score = 0;
@@ -139,5 +143,19 @@ public class LevelManager : MonoBehaviour
         
         int timeResult = 99 - Mathf.CeilToInt(_timer);
         timeMessage.text = $"Time taken: {timeResult}";
+    }
+
+    private void SetActiveCharacter()
+    {
+        if (GameManager.SelectedCharacter == "Gallagher")
+        {
+            gallagher.gameObject.SetActive(true);
+            hobo.gameObject.SetActive(false);
+        }
+        else if (GameManager.SelectedCharacter == "Hobo")
+        {
+            hobo.gameObject.SetActive(true);
+            gallagher.gameObject.SetActive(false);
+        }
     }
 }

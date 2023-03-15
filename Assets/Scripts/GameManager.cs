@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public static int TotalScore;
     public static bool GemCollected;
+    public static bool GallagherUnlocked;
+    public static string SelectedCharacter;
     public static float BestTime;
 
     private void Awake()
@@ -22,6 +24,7 @@ public class GameManager : MonoBehaviour
 
         TotalScore = 0;
         GemCollected = false;
+        GallagherUnlocked = false;
         BestTime = 99.0f;
 
         Instance = this;
@@ -54,8 +57,19 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public static void UnlockGallagher()
+    {
+        GallagherUnlocked = true;
+        TotalScore -= 1000;
+    }
+
     public static void LoadScene(string sceneToLoad)
     {
         SceneManager.LoadScene(sceneToLoad);
+    }
+
+    public static void SetSelectedCharacter(string selection)
+    {
+        SelectedCharacter = selection;
     }
 }
