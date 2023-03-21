@@ -7,7 +7,8 @@ public class PlayerController : MonoBehaviour
     public Rigidbody rb;
     public bool onGround = true;
     public bool canBoost = true;
-    public TMP_Text boostReadyText; 
+    public TMP_Text boostReadyText;
+    public ParticleSystem particle;
     [Header("Movement Parameters")]
     [SerializeField] float speed = 100.0f; // has no effect if using editor
     [SerializeField] private float rotationSpeed = 200.0f;
@@ -16,6 +17,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float thrust = 10.0f;
     [SerializeField] private float boostCooldown = 5.0f;
     private float _boostCooldownTimer;
+
+    private void Start()
+    {
+        particle = GetComponentInChildren<ParticleSystem>();
+    }
 
     private void Update()
     {
@@ -55,6 +61,23 @@ public class PlayerController : MonoBehaviour
             ResetBoostTimer();
             boostReadyText.gameObject.SetActive(false);
         }
+        
+        // If the player stops moving, stop the particle system
+        if (rb.velocity == Vector3.zero || !onGround)
+        {
+            particle.Stop();
+        }
+        else
+        {
+            // All of the particle settings have been pre-configured in the editor so all I need to do here is set
+            // the particle system to play
+            if (!particle.isPlaying)
+            {
+                particle.Play();   
+            }
+        }
+        
+        // Update particle count / speed dependant on velocity here
 
     }
 
