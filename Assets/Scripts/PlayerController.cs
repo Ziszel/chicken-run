@@ -73,7 +73,8 @@ public class PlayerController : MonoBehaviour
             // the particle system to play
             if (!particle.isPlaying)
             {
-                particle.Play();   
+                particle.Emit(10);
+                particle.Play();
             }
         }
 
