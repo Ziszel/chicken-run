@@ -77,7 +77,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (Input.GetKey(KeyCode.Escape))
+        if (Input.GetKey(KeyCode.R))
         {
             // not ideal opposing this method to every class at all times, but fine for a prototype / demo.
             LevelManager.RestartLevel();

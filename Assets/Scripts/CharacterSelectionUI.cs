@@ -52,14 +52,14 @@ public class CharacterSelectionUI : MonoBehaviour
             GameManager.SetSelectedCharacter("Hobo");
             playerOne.SetActive(false);
             playerTwo.SetActive(true);
-            charDescText.text = "Hobo Bill has a beard and doesn't like to wash.";
+            charDescText.text = "Hobo Bill gave up everything to board. He can also jump 150 metres into the air.\nAbility: Jump.";
         }
         else if (playerTwo.activeInHierarchy)
         {
             GameManager.SetSelectedCharacter("Gallagher");
             playerTwo.SetActive(false);
             playerOne.SetActive(true);
-            charDescText.text = "Gallagher is still living large like it's 1994. We're gonna live forever baby.";
+            charDescText.text = "Gallagher is still living large like it's 1994. We're gonna live forever baby.\nAbility: Boost.";
         }
     }
 
