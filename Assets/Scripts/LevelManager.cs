@@ -20,18 +20,21 @@ public class LevelManager : MonoBehaviour
     public TMP_Text scoreMessage;
     public TMP_Text timeMessage;
     public Image pickupImage;
+    public Image redGemImage;
     public Button restartButton;
     public GameObject gallagher;
     public GameObject hobo;
     private static int _score;
     private float _timer;
     private bool _pickupCollected;
+    private bool _redGemCollected;
     private AudioSource _as;
 
     private void Start()
     {
         SetActiveCharacter();
         _pickupCollected = false;
+        _redGemCollected = false;
         _timer = 99.0f;
         _score = 0;
         gs = GameState.Playing;
@@ -74,6 +77,12 @@ public class LevelManager : MonoBehaviour
         pickupImage.gameObject.SetActive(true);
     }
 
+    public void UpdateRedGem()
+    {
+        _redGemCollected = true;
+        redGemImage.gameObject.SetActive(true);
+    }
+
     private void RestartLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -81,7 +90,7 @@ public class LevelManager : MonoBehaviour
 
     private void OnRestartClicked()
     {
-        GameManager.UpdateGameState(_score, _pickupCollected, _timer);
+        GameManager.UpdateGameState(_score, _pickupCollected, _redGemCollected, _timer);
         GameManager.LoadScene("CharacterSelect");
     }
 

@@ -11,9 +11,17 @@ public class Pickup : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
-        { 
-            _lm.UpdatePickup();
-            gameObject.SetActive(false);
+        {
+            if (gameObject.CompareTag("Pickup"))
+            {
+                _lm.UpdatePickup();
+                gameObject.SetActive(false);   
+            }
+            else if (gameObject.CompareTag("RedGem"))
+            {
+                _lm.UpdateRedGem();
+                gameObject.SetActive(false);
+            }
         }
     }
 }

@@ -128,7 +128,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void RotatePlayer(float xSpeed, float zSpeed)
+    protected void RotatePlayer(float xSpeed, float zSpeed)
     {
         transform.Rotate(zSpeed * rotationSpeed * Time.deltaTime, xSpeed * rotationSpeed * Time.deltaTime, 0.0f);
     }

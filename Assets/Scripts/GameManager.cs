@@ -7,7 +7,8 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public static int TotalScore;
     public static bool GemCollected;
-    public static bool GallagherUnlocked;
+    public static bool RedGemCollected;
+    public static bool BeardUnlocked;
     public static string SelectedCharacter;
     public static float BestTime;
 
@@ -24,7 +25,8 @@ public class GameManager : MonoBehaviour
 
         TotalScore = 0;
         GemCollected = false;
-        GallagherUnlocked = false;
+        RedGemCollected = false;
+        BeardUnlocked = true;
         BestTime = 99.0f;
 
         Instance = this;
@@ -32,7 +34,7 @@ public class GameManager : MonoBehaviour
     }
     
     // This method is called by the level manager after the player returns from scene: LevelOne
-    public static void UpdateGameState(int latestScore, bool gemCollected, float latestTime)
+    public static void UpdateGameState(int latestScore, bool gemCollected, bool redGemCollected, float latestTime)
     {
         // Update the TotalScore
         TotalScore += latestScore;
@@ -41,6 +43,11 @@ public class GameManager : MonoBehaviour
         if (gemCollected)
         {
             GemCollected = true;
+        }
+
+        if (redGemCollected)
+        {
+            RedGemCollected = true;
         }
 
         // I could have the GemCollected variable reset if the player does not capture the gem, however
@@ -57,9 +64,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public static void UnlockGallagher()
+    public static void UnlockBeard()
     {
-        GallagherUnlocked = true;
+        BeardUnlocked = true;
         TotalScore -= 1000;
     }
 

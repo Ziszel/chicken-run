@@ -10,6 +10,7 @@ public class CharacterSelectionUI : MonoBehaviour
     [Header("UI Elements")]
     public TMP_Text silverPointsText;
     public TMP_Text gemCollectedText;
+    public TMP_Text redGemCollectedText;
     public TMP_Text bestTimeText;
     public TMP_Text charDescText;
     public Button startButton;
@@ -66,7 +67,7 @@ public class CharacterSelectionUI : MonoBehaviour
     {
         if (GameManager.TotalScore >= 1000)
         {
-            GameManager.UnlockGallagher();
+            GameManager.UnlockBeard();
             SetTextValues();
         }
     }
@@ -96,7 +97,8 @@ public class CharacterSelectionUI : MonoBehaviour
     private void SetTextValues()
     {
         silverPointsText.text = "Silver Points: " + GameManager.TotalScore;
-        gemCollectedText.text = (GameManager.GemCollected == true) ? "Gem Collected: Yes" : "Gem Collected: No";
+        gemCollectedText.text = (GameManager.GemCollected == true) ? "Gold Gem Collected: Yes" : "Gold Gem Collected: No";
+        redGemCollectedText.text = (GameManager.RedGemCollected == true) ? "Red Gem Collected: Yes" : "Red Gem Collected: No";
         bestTimeText.text = "Best Time: " + (int)GameManager.BestTime;
     }
 
@@ -109,7 +111,7 @@ public class CharacterSelectionUI : MonoBehaviour
         }
         else if (playerTwo.activeInHierarchy)
         {
-            if (GameManager.GallagherUnlocked)
+            if (GameManager.BeardUnlocked)
             {
                 startButton.gameObject.SetActive(true);
                 purchaseCharacter.gameObject.SetActive(false);
