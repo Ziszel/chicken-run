@@ -67,8 +67,11 @@ public class PlayerController2 : PlayerController
             }
         }
         
-        // Update particle count / speed dependant on velocity here
-
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            // not ideal opposing this method to every class at all times, but fine for a prototype / demo.
+            LevelManager.RestartLevel();
+        }
     }
 
     private void Jump()

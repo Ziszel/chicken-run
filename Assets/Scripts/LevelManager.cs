@@ -15,6 +15,7 @@ public class LevelManager : MonoBehaviour
     public static GameState gs;
     public TMP_Text scoreText;
     public TMP_Text timerText;
+    public TMP_Text skillText;
     public TMP_Text rankMessage;
     public TMP_Text pickupMessage;
     public TMP_Text scoreMessage;
@@ -83,7 +84,7 @@ public class LevelManager : MonoBehaviour
         redGemImage.gameObject.SetActive(true);
     }
 
-    private void RestartLevel()
+    public static void RestartLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
@@ -159,11 +160,13 @@ public class LevelManager : MonoBehaviour
         {
             gallagher.gameObject.SetActive(true);
             hobo.gameObject.SetActive(false);
+            skillText.text = "Boost Ready!";
         }
         else if (GameManager.SelectedCharacter == "Hobo")
         {
             hobo.gameObject.SetActive(true);
             gallagher.gameObject.SetActive(false);
+            skillText.text = "Jump Ready!";
         }
     }
 }

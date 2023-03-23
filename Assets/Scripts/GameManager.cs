@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
         TotalScore = 0;
         GemCollected = false;
         RedGemCollected = false;
-        BeardUnlocked = true;
+        BeardUnlocked = false;
         BestTime = 99.0f;
 
         Instance = this;
