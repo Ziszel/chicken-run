@@ -2,18 +2,26 @@ using UnityEngine;
 
 public class Pickup : MonoBehaviour
 {
-    private GameManager gm;
+    private LevelManager _lm;
     private void Start()
     {
-        gm = FindObjectOfType<GameManager>();
+        _lm = FindObjectOfType<LevelManager>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
-        { 
-            gm.UpdatePickup();
-            gameObject.SetActive(false);
+        {
+            if (gameObject.CompareTag("Pickup"))
+            {
+                _lm.UpdatePickup();
+                gameObject.SetActive(false);   
+            }
+            else if (gameObject.CompareTag("RedGem"))
+            {
+                _lm.UpdateRedGem();
+                gameObject.SetActive(false);
+            }
         }
     }
 }

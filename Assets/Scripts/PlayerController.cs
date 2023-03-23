@@ -7,7 +7,8 @@ public class PlayerController : MonoBehaviour
     public Rigidbody rb;
     public bool onGround = true;
     public bool canBoost = true;
-    public TMP_Text boostReadyText; 
+    public TMP_Text boostReadyText;
+    public ParticleSystem particle;
     [Header("Movement Parameters")]
     [SerializeField] float speed = 100.0f; // has no effect if using editor
     [SerializeField] private float rotationSpeed = 200.0f;
@@ -17,9 +18,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float boostCooldown = 5.0f;
     private float _boostCooldownTimer;
 
+    private void Start()
+    {
+        particle = GetComponentInChildren<ParticleSystem>();
+    }
+
     private void Update()
     {
-        if (GameManager.gs == GameState.Playing)
+        if (LevelManager.gs == GameState.Playing)
         {
             if (!onGround)
             {
@@ -29,7 +35,7 @@ public class PlayerController : MonoBehaviour
                 RotatePlayer(xSpeed, zSpeed);
             }
 
-            if (Input.GetKey(KeyCode.Space))
+            if (Input.GetKey(KeyCode.Space) && onGround)
             {
                 SpeedBoost();
                 ResetBoostTimer();
@@ -55,7 +61,28 @@ public class PlayerController : MonoBehaviour
             ResetBoostTimer();
             boostReadyText.gameObject.SetActive(false);
         }
+        
+        // If the player stops moving, stop the particle system
+        if (rb.velocity == Vector3.zero || !onGround)
+        {
+            particle.Stop();
+        }
+        else
+        {
+            // All of the particle settings have been pre-configured in the editor so all I need to do here is set
+            // the particle system to play
+            if (!particle.isPlaying)
+            {
+                particle.Emit(10);
+                particle.Play();
+            }
+        }
 
+        if (Input.GetKey(KeyCode.R))
+        {
+            // not ideal opposing this method to every class at all times, but fine for a prototype / demo.
+            LevelManager.RestartLevel();
+        } 
     }
 
     private void FixedUpdate()
@@ -105,7 +132,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void RotatePlayer(float xSpeed, float zSpeed)
+    protected void RotatePlayer(float xSpeed, float zSpeed)
     {
         transform.Rotate(zSpeed * rotationSpeed * Time.deltaTime, xSpeed * rotationSpeed * Time.deltaTime, 0.0f);
     }

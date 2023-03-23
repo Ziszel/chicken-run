@@ -53,7 +53,7 @@ public class PlayerFloorTrigger : MonoBehaviour
             pc.rb.freezeRotation = true;
             if (_flips > 0)
             {
-                GameManager.UpdateScore(_baseScore * _flips);
+                LevelManager.UpdateScore(_baseScore * _flips);
             }
             //Debug.Log(_flips);
             _flips = 0;
