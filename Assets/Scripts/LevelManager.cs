@@ -146,8 +146,8 @@ public class LevelManager : MonoBehaviour
         
         // score
         scoreMessage.text = $"Score: {_score} / 500";
-        // pickup
-        pickupMessage.text = (_pickupCollected) ? "Pickup collected: Yes" : "Pickup collected: No";
+        // pickups
+        pickupMessage.text = (_pickupCollected || _redGemCollected) ? "Pickup collected: Yes" : "Pickup collected: No";
         // time
         
         int timeResult = 99 - Mathf.CeilToInt(_timer);
