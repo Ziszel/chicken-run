@@ -5,6 +5,7 @@ using UnityEngine;
 public class ChangeCamera : MonoBehaviour
 {
     public Transform cameraWatchPosition;
+    public AudioSource levelLoopAs;
     private Camera _mainCamera;
     private readonly Vector3 _targetRotation = new Vector3(90.0f, 0.0f, 0.0f);
     private LevelManager _lm;
@@ -24,6 +25,7 @@ public class ChangeCamera : MonoBehaviour
             _mainCamera.transform.SetParent(null);
             MainCamera.UnlockCamera();
             SetCameraToWatch();
+            levelLoopAs.Stop();
             _lm.CompleteLevel();
             already_called++;
         }
