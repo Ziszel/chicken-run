@@ -22,3 +22,5 @@ Free assets that helped make this game possible:
 - https://assetstore.unity.com/packages/2d/textures-materials/4-snow-materials-high-quality-materials-collection-69201
 - https://assetstore.unity.com/packages/2d/textures-materials/sky/skybox-series-free-103633
 - https://www.textures.com/library (all character textures, various textures used.)
+
+Music created by Egyptian Space Dog: https://egyptianspacedog.itch.io/
