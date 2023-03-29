@@ -101,6 +101,7 @@ public class LevelManager : MonoBehaviour
         gs = GameState.Complete;
         
         // Play music
+        Debug.Log("I'm being called");
         _as.Play();
         
         // hide playing elements

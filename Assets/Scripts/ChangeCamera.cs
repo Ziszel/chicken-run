@@ -8,21 +8,24 @@ public class ChangeCamera : MonoBehaviour
     private Camera _mainCamera;
     private readonly Vector3 _targetRotation = new Vector3(90.0f, 0.0f, 0.0f);
     private LevelManager _lm;
+    private int already_called;
 
     private void Start()
     {
         _lm = FindObjectOfType<LevelManager>();
+        already_called = 0;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && already_called == 0)
         {
             _mainCamera = Camera.main;
             _mainCamera.transform.SetParent(null);
             MainCamera.UnlockCamera();
             SetCameraToWatch();
-            _lm.CompleteLevel();   
+            _lm.CompleteLevel();
+            already_called++;
         }
     }
 

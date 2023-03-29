@@ -23,7 +23,7 @@ public class CharacterSelectionUI : MonoBehaviour
     private void Start()
     {
         GameManager.SetSelectedCharacter("Gallagher");
-        charDescText.text = "Gallagher is still living it, like it's 1993. We're gonna live forever baby.";
+        charDescText.text = "Gallagher is still living it, like it's 1993. We're gonna live forever baby.\nAbility: Boost.";
         playerTwo.SetActive(false);
         startButton.onClick.AddListener(OnStartClicked);
         changeCharacterButton.onClick.AddListener(OnCharChangeClicked);
