@@ -52,32 +52,29 @@ public class PlayerController2 : PlayerController
             boostReadyText.gameObject.SetActive(false);
         }
         
-        // If the player stops moving, stop the particle system
+        /*// If the player stops moving, stop the particle system
         if (rb.velocity == Vector3.zero || !onGround)
         {
+            Debug.Log("I'm called");
             particle.Stop();
         }
-        else
+        else if (rb.velocity.z > 0 || onGround)
         {
             // All of the particle settings have been pre-configured in the editor so all I need to do here is set
             // the particle system to play
-            if (!particle.isPlaying)
-            {
-                particle.Play();   
-            }
+            particle.Play();
         }
         
         if (Input.GetKey(KeyCode.R))
         {
             // not ideal opposing this method to every class at all times, but fine for a prototype / demo.
             LevelManager.RestartLevel();
-        }
+        }*/
     }
 
     private void Jump()
     {
         rb.AddForce(new Vector3(0.0f, force, 0.0f), ForceMode.Impulse);
-        
     }
 
     private void ResetJumpTimer()

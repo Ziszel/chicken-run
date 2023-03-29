@@ -67,15 +67,11 @@ public class PlayerController : MonoBehaviour
         {
             particle.Stop();
         }
-        else
+        else if (rb.velocity.z > 0 || onGround)
         {
             // All of the particle settings have been pre-configured in the editor so all I need to do here is set
             // the particle system to play
-            if (!particle.isPlaying)
-            {
-                particle.Emit(10);
-                particle.Play();
-            }
+            particle.Play();
         }
 
         if (Input.GetKey(KeyCode.R))
